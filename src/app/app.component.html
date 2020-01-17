@@ -3,6 +3,11 @@
 
 <!-- esta variable esta declarada en app.component.ts-->
 <h1>{{title}}</h1>
+<div class=" border border-primary p-2">
+  <app-boton></app-boton>
+
+</div>
+
 <div class="row ml-3 mb-3 mt-3">
     <div class="col">
       <ul class="list-group mt-2">
@@ -21,7 +26,7 @@
         </li>
         <li class="list-group-item"> 
           <div class="border" style="position: relative;" >
-            Imagen : <br> <img src="{{pSeleccionado.imagen}}" alt="Smiley face" height="200" width="200" style="object-fit: scale-down;">
+            <img src="{{pSeleccionado.imagen}}" alt="Smiley face" height="200" width="200" style="object-fit: scale-down;">
             <div *ngIf="pSeleccionado.gluten" class="bg-danger rounded-circle position-absolute" style="width: 30px; height: 30px; top: 5px;left: 330px;">
             </div>
             <div *ngIf="!pSeleccionado.gluten" class="bg-success rounded-circle position-absolute" style="width: 30px; height: 30px; top: 5px;left: 330px;">
@@ -65,3 +70,4 @@
     </ul>
     </div>
 </div>
+

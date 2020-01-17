@@ -68,7 +68,7 @@ export class AppComponent {
     "id": 3,
     "nombre": "flan de huevo",
     "gluten": false,
-    "imagen" : "https://www.jing.fm/clipimg/detail/85-852636_flan-png-319485-crme-caramel.png",
+    "imagen" : "https://www.pngjoy.com/pngl/237/4619466_flan-rebanada-de-flan-napolitano-png-transparent-png.png",
     "categoria": {
       "id": 3,
       "nombre": "postres"
