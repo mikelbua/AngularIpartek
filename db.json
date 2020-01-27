@@ -1,0 +1,58 @@
+{
+  "colores": [
+    {
+      "id": 1,
+      "nombre": "Negro",
+      "hex": "#000"
+    },
+    {
+      "nombre": "blanco",
+      "hex": "#FFF",
+      "id": 2
+    },
+    {
+      "id": 3,
+      "nombre": "Azul",
+      "hex": "#00F"
+    },
+    {
+      "id": 4,
+      "nombre": "Rojo",
+      "hex": "#F00"
+    },
+    {
+      "id": 5,
+      "nombre": "Verde",
+      "hex": "#0F0"
+    }
+  ],
+  "productos": [
+    {
+      "id": 1,
+      "nombre": "leche",
+      "gluten": true
+    },
+    {
+      "id": 2,
+      "nombre": "pan",
+      "gluten": false
+    }
+  ],
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
