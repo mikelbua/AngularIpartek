@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { InicioComponent } from './paginas/inicio/inicio.component';
 import { ArraysComponent } from './paginas/arrays/arrays.component';
+import { PokemonRestComponent } from './paginas/pokemon-rest/pokemon-rest.component';
 
 /**
  * definir las rutas de la aoo de angulas.
@@ -9,7 +10,9 @@ import { ArraysComponent } from './paginas/arrays/arrays.component';
  * */
 const routes: Routes = [
   { path: '', component: InicioComponent },
-  { path: 'productos', component: ArraysComponent }
+  { path: 'arrays', component: ArraysComponent },
+  { path: 'pokemon', component: PokemonRestComponent }
+  
 ];
 
 @NgModule({
