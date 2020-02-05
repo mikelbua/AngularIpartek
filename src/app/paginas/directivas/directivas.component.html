@@ -1,1 +1,20 @@
-<p>directivas works!</p>
+<h1>Directivas</h1>
+
+<p>Hay tres tipos de directivas : </p>
+
+<dl>
+    <dt>Components :</dt><dd>Son directivas con una plantilla de html.</dd>
+    <dt>Estructurales :</dt><dd>Cambian el DOM añdiendo o removiendo elementos, por jemplo *ngIf.</dd>
+    <dt>Attribute directive :</dt><dd>Cambian la apariencia de un elemento del DOM, por ejemplo NgStyle.</dd>
+</dl>
+<p appSubrayar="red">pordemos crar nuestras popias directivas usando en el terminal el codigo <code>ng generate directive $nombre_de_nuestra_directiva</code></p>
+<p [appSubrayar]="'blue'"> en esta etiqueta estamos usando nuestra directiva.</p>
+
+<p>Elige color :</p>
+<input type="color" [(ngModel)]="colorSeleccionado">
+<br>
+<input type="radio" [(ngModel)]="colorSeleccionado" value="blue">Azul
+<br>
+<input type="radio" [(ngModel)]="colorSeleccionado" value="red">Rojo
+<br>
+<input type="radio" [(ngModel)]="colorSeleccionado" value="green">Verde

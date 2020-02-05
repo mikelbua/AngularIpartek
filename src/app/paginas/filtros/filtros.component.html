@@ -1,1 +1,30 @@
-<p>filtros works!</p>
+
+<h1>{{'Pipes o Filtros' | uppercase}}</h1>
+
+<p>Guias oficiales : </p>
+<p><a href="https://angular.io/guide/pipes">Pipes de angular2</a></p>
+<p><a href="https://angular.io/api?type=pipe">API Lst pipe</a></p>
+<hr>
+<pre>{{coche | json}}</pre>
+<ul>
+    <li>{{coche.nombre | uppercase}}</li>
+    <li>{{coche.color | lowercase}}</li>
+    <li>{{coche.precio | currency:'EUR'}}</li>
+
+    <p class="text-warning">TODO buscar cmo poner locales en castellano</p>
+
+    <li>{{coche.nombre | slice : 0 : 5}}</li>
+    <li>{{coche.nombre | slice : 5 }}</li>
+</ul>
+<hr>
+<p>Buscar  :<input type="search" [(ngModel)]="busqueda" placeholder="buscar por nombre"> </p>
+<ul class="list-group">
+    <li *ngFor="let animal of animales | animalesFiltro : busqueda "
+        class="list-group-item">
+            <img src="{{animal.Imagen}}" class="circle" /> 
+            <div>
+                <p class="nombre">{{animal.Nombre}}</p>            
+                <p class="observacion">{{animal.Observacion}}</p>
+            </div>    
+    </li>   
+  </ul>

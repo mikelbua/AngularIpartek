@@ -7,7 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DirectivasComponent implements OnInit {
 
-  constructor() { }
+  constructor() { 
+    console.trace('HelloDirective constructor');
+  }
 
   ngOnInit() {
   }

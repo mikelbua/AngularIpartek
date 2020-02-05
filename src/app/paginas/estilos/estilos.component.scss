@@ -36,24 +36,23 @@ p {
     border-radius: 50px;
     padding: 10px;
     margin: 10px;
+    display: inline-block;
     
 }
 
 .boton_verde {
     @extend %boton;
     color: #008000;
-    display: inline-block;
     &:hover {
-        background:#008E7B;
+        background:#da9393;
     }
 }
 
 .boton_rojo {
     @extend %boton;
     color: red;
-    display: inline-block;
     &:hover {
-        background:#008E7B;
+        background:#da9393;
     }
 }
 
