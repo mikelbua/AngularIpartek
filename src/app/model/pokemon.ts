@@ -3,11 +3,16 @@ export class Pokemon {
     private _id: number;
     private _nombre: string;
     private _imagen: string;
+    private _habilidades: Array<any>;
+    
+    
+
     
     constructor(nombre : string){
         this._id = 0;
         this.nombre = nombre;
         this._imagen = 'https://static.turbosquid.com/Preview/2014/05/25__19_38_41/POKEBALL_LASTRENDER_thumb.jpgaee5aa9b-36fa-4679-a03f-0297d4c6b9a6DefaultHQ.jpg';
+        this._habilidades = [];
     }
 
 
@@ -33,5 +38,11 @@ export class Pokemon {
         this._imagen = value;
     }
 
+    public get habilidades(): Array<any> {
+        return this._habilidades;
+    }
+    public set habilidades(value: Array<any>) {
+        this._habilidades = value;
+    }
 
 }

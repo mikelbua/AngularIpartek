@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Pokemon } from 'src/app/model/pokemon';
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
-import { PokemonService } from 'src/app/services/pokemon.service';
+import { PokemonService } from "src/app/services/pokemon.service";
 
 @Component({
   selector: 'app-pokemon-rest',
@@ -12,37 +11,72 @@ export class PokemonRestComponent implements OnInit {
 
 
   pokemon : Pokemon;
+  mensaje : string;
 
   constructor( private PokemonService : PokemonService ) { 
 
     console.trace('PokemoRestComponent constructor');
 
-    this.pokemon = new Pokemon('pikachu');
-    this.pokemon.nombre = 'Pikachu';
+    this.pokemon = new Pokemon('');
+    /*this.pokemon.nombre = 'Pikachu';
     this.pokemon.id = 25;
     this.pokemon.imagen = `https://images-na.ssl-images-amazon.com/images/I/31dQTRb3vHL._AC_SY355_.jpg`;
-
-
+    */
+    
     console.debug(this.pokemon);
   }
 
   ngOnInit() {
     console.trace('PokemoRestComponent init');
 
-    //llamadas a los sevicios.
+    this.getPokemon('pikachu');
+  }
+  /*
+  onSubmit(pokemoname: string, event : Event) {
+    
+    event.preventDefault();
+    this.getPokemon(pokemoname);
+  }
+*/
+  getPokemon (nombre : string){
+
+     //llamadas a los sevicios.
     //cuanod llamamos a un observable tenemos tres posibles metodos, SOLO UNO es OBLIGATORIO.
     //a un observble nos tenemos que subscribir.
-    this.PokemonService.getAllPokemon().subscribe(
-      data =>{
-        console.debug(`perticion CORRECTA data %o`, data);
+    this.PokemonService.getPokemonByNombre( 'pikachu' ).subscribe(
+      data => {
+        console.debug('peticion correcta data %o', data);
+        // mapear de Jon a Pokemon
+        this.pokemon.id = data.id;
+        this.pokemon.nombre = data.name;
+        this.pokemon.imagen = data.sprites.front_default;
+
+        const habilidadesNames = data.abilities.map( el => el.ability.name );
+        console.debug('habilidades en ingles %o', habilidadesNames);
+
+        habilidadesNames.forEach( habilidad => {
+            // conseguir su habilidad en castellano
+            this.PokemonService.getHabilidad( habilidad ).subscribe(
+              json => {
+                console.debug('habilidad %o' ,  json);
+                const habilidadCastellano = json.names.find( el => el.language.name === 'es' );
+                console.debug('recupera habiliada en castellano %o', habilidadCastellano);
+                this.pokemon.habilidades.push( habilidadCastellano.name );
+            });
+
+
+        });
+
+        this.mensaje = 'Pokemon cargado desde https://pokeapi.co';
+
       },
       error => {
-        console.debug(`perticion ERRONE data %o`, error);
+        console.warn('peticion ERRONEA data %o', error);
+        this.mensaje = 'No existe pokemon X';
       },
       () => {
-        console.debug('esto se hace siempre');
+        console.trace('esto se hace siempre');
       }
-      
     );
 
   }

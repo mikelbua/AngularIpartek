@@ -1,12 +1,24 @@
    
 
-    <div class="card mb-5" style="width: 18rem;">
-        <img src="{{pokemon.imagen}}">
-        <div class="card-body ">
-            <input type="text" class="form-control mb-2" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
-            <p>Nº {{pokemon.id}}</p>
-            <p>{{pokemon.nombre}}</p>
+<div *ngIf="mensaje" class="alert alert-primary" role="alert">
+    {{mensaje}}
+</div>
 
-            <button type="button" class="btn btn-dark" placeholder="nombre pokemon">Buscar</button>
+<div class="card mb-5" style="width: 18rem;">
+        <img class="card-img-top" src="{{pokemon.imagen}}">
+        <div class="card-body ">
+            
+                <input type="text" #pokemon class="form-control mb-2" placeholder="pokemon name" aria-label="Small" aria-describedby="inputGroup-sizing-sm" >
+                <p>Nº {{pokemon.id}}</p>
+                <p>{{pokemon.nombre}}</p>
+
+                <button type="button" class="btn btn-dark" placeholder="nombre pokemon">Buscar</button>
+                <!--<button (click)="getFotoFondo()">Obtener</button>-->
+            
+            <ol>
+                <h3>Habiliades</h3>
+                <li *ngFor="let h of pokemon.habilidades">{{h}}</li>
+            </ol>
         </div>
+      
       </div>

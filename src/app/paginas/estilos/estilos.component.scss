@@ -1,0 +1,59 @@
+//soporta vomentarios de linea los cuales luego no se ven en el .css
+//Valiables
+
+$color_pink : #da9393;
+$color_green : #00FF00;
+$color_black : #000000;
+h1 {
+    color: $color_pink; 
+}
+
+p {
+    code 
+    {
+        color: $color_green;
+        background-color: $color_black;
+        padding: 2px 3px;
+    }
+
+}
+
+//mixin o funciones par reutilizar
+
+@mixin redondear($radio , $color , $fontColor) {
+    border-radius: $radio;
+    background-color: $color_black;
+    border:2px solid $color;
+    color:$fontColor;
+    padding: 10px;
+    margin: 10px;
+  }
+
+.borde_redondo10{ @include redondear(10px, $color_pink , white); }
+.borde_redondo50{ @include redondear(50px, $color_green, white); }
+
+%boton {
+    border-radius: 50px;
+    padding: 10px;
+    margin: 10px;
+    
+}
+
+.boton_verde {
+    @extend %boton;
+    color: #008000;
+    display: inline-block;
+    &:hover {
+        background:#008E7B;
+    }
+}
+
+.boton_rojo {
+    @extend %boton;
+    color: red;
+    display: inline-block;
+    &:hover {
+        background:#008E7B;
+    }
+}
+

@@ -1,1 +1,26 @@
-<p>inicio!</p>
+<h1>inicio!</h1>
+<h2>{{titulo}}</h2>
+<button (click)="contarClicks()">DALE</button>
+<p>{{numeroClicks}}</p>
+<p>Ejemplo de propiedad siempre con [] y las variables sin llaves</p>
+<p>La propiedad
+    <code>hidden</code> es de angular y tambien podriamos hbaer usado <code>ng-if</code>
+</p>
+<p [hidden]="!visible">
+    Adiós con propiedad <code>hidden</code>
+</p>
+<p *ngIf="visible">
+    Adiós con propiedad <code>ng-if</code>
+</p>
+<button (click)="decirAdios()">Decir adiós</button>
+<hr>
+    <div [class]="claseSeleccionada">COLOR que cambia la pulsar el boton</div>
+    <button (click)="claseSeleccionada='rojo'">Decir adiós</button>
+    <button (click)="claseSeleccionada='verde'">Decir adiós</button>
+
+    
+    <p>para usar banana in a box recordad importar el modelo <code>FormsModule</code>
+         en elarchivo <code>app.module.ts</code>
+    </p>
+    <label>Nonbre del jugador : {{jugador}} </label><br>
+    <input type="text" [(ngModel)]="jugador" style="margin: 10px 10px 50px 0;">

@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -10,6 +11,8 @@ import { InicioComponent } from './paginas/inicio/inicio.component';
 import { ArraysComponent } from './paginas/arrays/arrays.component';
 import { NavbarComponent } from './componentes/navbar/navbar.component';
 import { PokemonRestComponent } from './paginas/pokemon-rest/pokemon-rest.component';
+import { EstilosComponent } from './paginas/estilos/estilos.component';
+import { JuegoComponent } from './paginas/juego/juego.component';
 
 @NgModule({
   declarations: [
@@ -19,12 +22,15 @@ import { PokemonRestComponent } from './paginas/pokemon-rest/pokemon-rest.compon
     InicioComponent,
     ArraysComponent,
     NavbarComponent,
-    PokemonRestComponent
+    PokemonRestComponent,
+    EstilosComponent,
+    JuegoComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

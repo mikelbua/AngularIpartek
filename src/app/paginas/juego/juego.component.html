@@ -1,0 +1,28 @@
+
+<div class="container">
+    <h1 class="m-auto">JUEGO!</h1>
+    <div class="row">
+        <div class="col-6 align-center">
+
+            <label>Nonbre del jugador : </label>
+            <input type="text" [(ngModel)]="jugador" style="margin: 10px 10px 50px 0;">
+            <button class="btn btn-primary" (click)="jugarClcik()">JUGAR</button>
+            <br><br><br>
+            
+            <p id="nombreJugador">Jugador : {{jugador}}</p>
+            
+            <p>{{numeroClicks}}</p>
+            <button class="btn btn-block btn-primary" (click)="contarClicks()" [disabled]="!enJuego">DALE</button>
+        </div>
+        <div class="col-6 bg-primary" style="border: 2px solid black; margin-top: 10px;">
+            <h1>Ranking : </h1>
+            <ul>
+                <li *ngFor="let m of miMapa | keyvalue">
+                    {{m.key}} --> {{m.value}}
+                </li>
+            </ul>
+            
+            <div>{{map.size}}</div>
+        </div>
+    </div>
+    </div>
