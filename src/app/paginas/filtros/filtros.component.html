@@ -17,9 +17,16 @@
     <li>{{coche.nombre | slice : 5 }}</li>
 </ul>
 <hr>
-<p>Buscar  :<input type="search" [(ngModel)]="busqueda" placeholder="buscar por nombre"> </p>
-<ul class="list-group">
-    <li *ngFor="let animal of animales | animalesFiltro : busqueda "
+
+<p style="display: inline;">Buscar  :<input type="search" class="form-control d-inline mr-2 w-25" [(ngModel)]="busqueda" placeholder="buscar por nombre"> </p>
+<label>Tipo </label>{{tipoSeleccionado}}
+<select id="inputState" class="form-control d-inline w-25" [(ngModel)]="tipoSeleccionado">
+    <option>Todos</option>
+    <option *ngFor = "let t of tipoAnimal">{{t}}</option>
+</select>
+
+<ul class="list-group mt-3 mb-5">
+    <li *ngFor="let animal of animales | animalesFiltro : busqueda : tipoSeleccionado"
         class="list-group-item">
             <img src="{{animal.Imagen}}" class="circle" /> 
             <div>
@@ -28,3 +35,5 @@
             </div>    
     </li>   
   </ul>
+  
+  

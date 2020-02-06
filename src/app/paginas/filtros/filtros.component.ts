@@ -9,6 +9,9 @@ export class FiltrosComponent implements OnInit {
 coche : any;
 animales : Array<any>;
 busqueda: string;
+tipoAnimal : Set<string>;
+tipoSeleccionado : string;
+
   constructor() { 
     console.trace('constructor filtro');
     this.coche ={
@@ -17,7 +20,10 @@ busqueda: string;
           "diesel" : false,
           "precio" : 100000.67876
     };
+    this.tipoSeleccionado = 'Todos';
     this.animales = ANIMALES;
+    this.tipoAnimal = new Set<string>(this.animales.map(el=> el.Tipo));
+    console.trace(this.tipoAnimal);
     this.busqueda = '';
 
   }//constructor
