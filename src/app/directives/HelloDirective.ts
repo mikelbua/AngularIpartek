@@ -8,6 +8,7 @@ export class HelloDirective {
   } //contructor
   @HostListener('mouseenter')
   public onMouseEnter() {
+    debugger;
     this.element.nativeElement.style.textDecoration = this.subrayado;
     this.element.nativeElement.style.color = 'red';
   }

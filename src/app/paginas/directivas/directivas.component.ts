@@ -6,9 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./directivas.component.scss']
 })
 export class DirectivasComponent implements OnInit {
-
+  colorSeleccionado:any;
   constructor() { 
     console.trace('HelloDirective constructor');
+    this.colorSeleccionado = '';
   }
 
   ngOnInit() {
