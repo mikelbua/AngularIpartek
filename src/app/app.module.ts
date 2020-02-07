@@ -19,6 +19,10 @@ import { HelloDirective } from './directives/hello.directive';
 import { SubrayarDirective } from './directives/subrayar.directive';
 import { AnimalesPipe } from './pipes/animales.pipe';
 import { RecetasComponent } from './paginas/recetas/recetas.component';
+import { RecetaFiltroPipePipe } from './pipes/receta-filtro-pipe.pipe';
+import { Error404Component } from './paginas/error404/error404.component';
+import { SaludarComponent } from './paginas/saludar/saludar.component';
+import { ComparadorComponent } from './paginas/comparador/comparador.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +40,11 @@ import { RecetasComponent } from './paginas/recetas/recetas.component';
     HelloDirective,
     SubrayarDirective,
     AnimalesPipe,
-    RecetasComponent
+    RecetasComponent,
+    RecetaFiltroPipePipe,
+    Error404Component,
+    SaludarComponent,
+    ComparadorComponent
   ],
   imports: [
     BrowserModule,

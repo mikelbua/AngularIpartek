@@ -1,30 +1,40 @@
 
 <div class="container  p-3">
     <div class="row  p-1">
-        <div class="col  p-2 h-50"><p><a href="">nueva receta</a></p></div>
+        <div class="col  p-2 h-50">
+            <p><a href="">nueva receta</a></p>
+        </div>
+        <div>
+            GlutenFree <input type="checkbox" [(ngModel)] = "checkGluten">
+        </div>
         <div class="col  p-2">
-            <p style="display: inline;">buscar :</p><input type="search" class="form-control d-inline mr-2 w-75 p-3" [(ngModel)]="busqueda" placeholder="buscar por nombre,rectea,cocinero"> 
+            <p style="display: inline;">buscar :</p><input type="search" class="form-control d-inline mr-2 w-75 p-3" [(ngModel)]="busqueda" placeholder="buscar por nombre,cocinero,ingredientes"> 
         </div>
     </div>
     <div class="row p-1">
-        <div class="col-3 ">
+        <div class="col-3 "> 
             <h3>Recetario</h3>
             <ul class="list-group">
-                <li *ngFor ="let r of recetas" class="list-group-item" (click)="detalleReceta(r)">
+                <li *ngFor ="let r of recetas | recetaFiltroPipe : checkGluten : busqueda" class="list-group-item"  (click)="detalleReceta(r)">
                     <div>{{r.nombre}}</div>
-                    <div><i style="color: #97A09D;">{{r.cocinero}}</i></div>
+                    <div class="nombreCocinero"><i>{{r.cocinero}}</i></div>
+                    <div class="listaRecetario" [style.background]="r.isGlutenFree ? 'green' : 'red'">
+                        Glu
+                    </div>
                 </li>
             </ul>
         </div>
-        <div class="col-9 p-0" style="border: 1px solid #BA741A;" >            
-            <div class="col-12" style="color : white; width: 100%; border: 1px solid #BA741A; background-color: #BA741A;">
-                <h5 class="pl-3"><b>{{receta.nombre}}</b></h5>
+        <div class="col-9 p-0 detalleReceta">            
+            <div class="col-12 nombreDetalleReceta">
+                <h3 class="pl-3">{{receta.nombre}}</h3>
             </div>
-            <div class="row " style="width: 100%;">
-                <div class="col  p-2 ml-3" style="position: relative;">
-                    <img class=" mt-2" src="{{receta.foto}}" alt="" style="width: 100%; height: 250px;">
-                    <div style="background-color: red; right: 10px; top: 20px; border: 1px solid black; border-radius: 25px; position: absolute; width: 25px; height: 25px;">
-                        
+            <div class="row" style="width: 100%;">
+                <div class="col  p-2 ml-3">
+                    <div style="position: relative;">
+                        <img class=" mt-2 imagenReceta" src="{{receta.foto}}" alt="">
+                        <span class="glutenBox" id="glutenFree">
+                           Glu
+                        </span>
                     </div>
                     <div class="w-100 d-flex">
                         <i class="fas fa-heart"></i> {{receta.likes}}
@@ -38,7 +48,7 @@
                     </ul>
                 </div>
             </div>
-            <div class="row  " style="width: 100%;">
+            <div class="row">
                 <div class="col ml-3">
                     <p>{{receta.descripcion}}</p>
                 </div>

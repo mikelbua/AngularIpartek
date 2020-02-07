@@ -8,6 +8,8 @@ import { JuegoComponent } from './paginas/juego/juego.component';
 import { DirectivasComponent } from './paginas/directivas/directivas.component';
 import { FiltrosComponent } from './paginas/filtros/filtros.component';
 import { RecetasComponent } from './paginas/recetas/recetas.component';
+import { Error404Component } from './paginas/error404/error404.component';
+import { SaludarComponent } from './paginas/saludar/saludar.component';
 /**
  * definir las rutas de la aoo de angulas.
  * e path debe coincider con el [routerlink] del navbar
@@ -20,7 +22,10 @@ const routes: Routes = [
   { path: 'juego', component: JuegoComponent },
   { path: 'directivas', component: DirectivasComponent },
   { path: 'filtros', component: FiltrosComponent },
-  { path: 'recetas', component: RecetasComponent }
+  { path: 'recetas', component: RecetasComponent },
+  //los  dos puntos (:) :pNombre sirven para indicar que espera un parametro
+  { path: 'saludar/:pNombre', component: SaludarComponent },
+  { path: '**', component: Error404Component },
   
 ];
 

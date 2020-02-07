@@ -11,10 +11,15 @@ export class RecetasComponent implements OnInit {
   recetas : Array<any>;
   receta : any;
   ingredientes : Array<string>;
+  checkGluten : boolean;
+  busqueda : string;
+  colorGluten : string;
 
   constructor() {
     this.recetas = RECETAS;
     this.receta = this.recetas[0];
+    this.checkGluten = false;
+    this.busqueda = '';
 
    }//CONSTRUCTOR
 
@@ -24,6 +29,11 @@ export class RecetasComponent implements OnInit {
 
   detalleReceta(r:any){
     this.receta = r;
+    if(!this.receta.isGlutenFree){
+      document.getElementById("glutenFree").style.backgroundColor = "red";
+    }else{
+      document.getElementById("glutenFree").style.backgroundColor = "green";
+    }
   }
 
 }//CLASS
