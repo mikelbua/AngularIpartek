@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -23,6 +23,9 @@ import { Error404Component } from './paginas/error404/error404.component';
 import { SaludarComponent } from './paginas/saludar/saludar.component';
 import { ComparadorComponent } from './paginas/comparador/comparador.component';
 import { HelloDirective } from './directives/HelloDirective';
+import { TareasComponent } from './paginas/tareas/tareas.component';
+import { PrivadoComponent } from './paginas/privado/privado.component';
+import { LoginComponent } from './paginas/login/login.component';
 
 @NgModule({
   declarations: [
@@ -45,12 +48,16 @@ import { HelloDirective } from './directives/HelloDirective';
     Error404Component,
     SaludarComponent,
     ComparadorComponent,
+    TareasComponent,
+    PrivadoComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule,
-    FormsModule
+    HttpClientModule,//modulo para llamadas por HTTP
+    FormsModule,//banaa in a box
+    ReactiveFormsModule//para formularios reactivos
   ],
   providers: [],
   bootstrap: [AppComponent]

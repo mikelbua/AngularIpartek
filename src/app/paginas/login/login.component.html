@@ -1,0 +1,67 @@
+<h1>Inicir sesion</h1>
+<h2>Formulario reactivo</h2>
+<p class="text-warning">Acordarse de importar <code>ReactiveFormsModule</code>  en <code>app>app.modules.ts</code> </p>
+
+<div class="row">
+    <div class="col mb-4">
+        
+        <div class="container">
+            <div class="d-flex justify-content-center h-100">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Sign In</h3>
+                    </div>
+                    <div class="card-body">
+                        <form [formGroup]="formulario" (ngSubmit)="enviar(formulario.value)">
+                            <label for="nombre">Nombre</label>
+                            <input class="form-control mt-2 mb-2" type="text" placeholder="nombre" formControlName="nombre">
+                            <small class="text-warning" *ngIf ="formulario.controls.nombre.invalid && formulario.controls.nombre.dirty"> Minimo 2 maximo 15</small>
+                            <br>
+                            <label for="password">Password</label>
+                            <input class="form-control mt-2 mb-2" type="password"  placeholder="Password" formControlName="password">
+                            <small class="text-warning" *ngIf ="formulario.controls.password.invalid && formulario.controls.password.dirty"> Minimo 2 maximo 8</small>
+                            <br>
+                            <input class="mt-2 mb-2"type="submit" [disabled]="formulario.invalid" value="Enviar">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- /.col 1-->
+    <div class="col text-warning rounded codigo mb-5">
+        
+        <h4>Pruebas y Documentacion </h4>
+        <pre class="text-warning">{{formulario.value | json}}</pre>
+        <pre class="text-warning">{{formulario.status | json}}</pre>
+
+        <h3>FormControl para <b>password</b> y <b>nombre</b></h3>
+        <a href="https://angular.io/api/forms/FormControl" target="_blank" class="text-dark"><b>-Documentacion : https://angular.io/api/forms/FormControl</b> </a>
+        <div class="row">
+            <div class="col">
+                <p>Password</p>
+                <pre>valid: {{ formulario.controls.password.valid | json }}</pre>      
+                <pre>invalid: {{ formulario.controls.password.invalid | json }}</pre>      
+                <pre>dirty: {{ formulario.controls.password.dirty | json }}</pre>      
+                <pre>pristine: {{ formulario.controls.password.pristine | json }}</pre>      
+                <pre>touched: {{ formulario.controls.password.touched | json }}</pre>      
+                <pre>untouched: {{ formulario.controls.password.untouched | json }}</pre>      
+                <pre>Errors: {{ formulario.controls.password.errors | json }}</pre>
+            </div>
+            <div class="col">
+                <p>Nombre</p>
+                <pre>valid: {{ formulario.controls.nombre.valid | json }}</pre>      
+                <pre>invalid: {{ formulario.controls.nombre.invalid | json }}</pre>      
+                <pre>dirty: {{ formulario.controls.nombre.dirty | json }}</pre>      
+                <pre>pristine: {{ formulario.controls.nombre.pristine | json }}</pre>      
+                <pre>touched: {{ formulario.controls.nombre.touched | json }}</pre>      
+                <pre>untouched: {{ formulario.controls.nombre.untouched | json }}</pre>      
+                <pre>Errors: {{ formulario.controls.nombre.errors | json }}</pre>
+            </div> 
+        </div>    
+    </div>
+    <!-- /.col 2-->
+</div>
+<!-- /.row-->
+

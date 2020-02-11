@@ -8,12 +8,11 @@
         <img class="card-img-top" src="{{pokemon.imagen}}">
         <div class="card-body ">
             
-                <input type="text" #pokemon class="form-control mb-2" placeholder="pokemon name" aria-label="Small" aria-describedby="inputGroup-sizing-sm" >
+                <input type="text"  class="form-control mb-2" [(ngModel)]="nombrePokemon" placeholder="pokemon name" aria-label="Small" aria-describedby="inputGroup-sizing-sm" >
                 <p>Nº {{pokemon.id}}</p>
                 <p>{{pokemon.nombre}}</p>
 
-                <button type="button" class="btn btn-dark" placeholder="nombre pokemon">Buscar</button>
-                <!--<button (click)="getFotoFondo()">Obtener</button>-->
+                <button type="button" class="btn btn-dark" (click)="buscarPoquemon()" >Buscar</button>
             
             <ol>
                 <h3>Habiliades</h3>

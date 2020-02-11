@@ -12,41 +12,41 @@ export class PokemonRestComponent implements OnInit {
 
   pokemon : Pokemon;
   mensaje : string;
+  nombrePokemon : string;
 
   constructor( private PokemonService : PokemonService ) { 
 
     console.trace('PokemoRestComponent constructor');
 
     this.pokemon = new Pokemon('');
+    this.nombrePokemon = '';
     /*this.pokemon.nombre = 'Pikachu';
     this.pokemon.id = 25;
     this.pokemon.imagen = `https://images-na.ssl-images-amazon.com/images/I/31dQTRb3vHL._AC_SY355_.jpg`;
     */
     
     console.debug(this.pokemon);
-  }
+  }//constructor
 
   ngOnInit() {
     console.trace('PokemoRestComponent init');
 
-    this.getPokemon('pikachu');
+    this.getPokemon('nombrePokemon');
+  }//init
+
+  buscarPoquemon(){
+    this.getPokemon(this.nombrePokemon);
   }
-  /*
-  onSubmit(pokemoname: string, event : Event) {
-    
-    event.preventDefault();
-    this.getPokemon(pokemoname);
-  }
-*/
+
   getPokemon (nombre : string){
 
-     //llamadas a los sevicios.
-    //cuanod llamamos a un observable tenemos tres posibles metodos, SOLO UNO es OBLIGATORIO.
+    //llamadas a los sevicios.
+    //cuanodo llamamos a un observable tenemos tres posibles metodos, SOLO UNO es OBLIGATORIO.
     //a un observble nos tenemos que subscribir.
-    this.PokemonService.getPokemonByNombre( 'pikachu' ).subscribe(
+    this.PokemonService.getPokemonByNombre( 'nombrePokemon' ).subscribe(
       data => {
         console.debug('peticion correcta data %o', data);
-        // mapear de Jon a Pokemon
+        // mapear de Json a Pokemon
         this.pokemon.id = data.id;
         this.pokemon.nombre = data.name;
         this.pokemon.imagen = data.sprites.front_default;
