@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 /*
-*COMONENTE PRINCIPAL QUE SE CARGA AL ARRANCAR LA APP
+*COMPONENTE PRINCIPAL QUE SE CARGA AL ARRANCAR LA APP
 *
 *selector : nombre de la etiqueta para inyectar componentes.
 *templatUrl : Vista del HTML.
@@ -14,8 +14,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
-  //esto es una variable
-  title = 'my-app ->  Welcome to the hell';
+ 
   productos = [
     {
     "id": 1,

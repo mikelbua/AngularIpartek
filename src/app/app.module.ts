@@ -56,7 +56,7 @@ import { LoginComponent } from './paginas/login/login.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,//modulo para llamadas por HTTP
-    FormsModule,//banaa in a box
+    FormsModule,//banana in a box
     ReactiveFormsModule//para formularios reactivos
   ],
   providers: [],

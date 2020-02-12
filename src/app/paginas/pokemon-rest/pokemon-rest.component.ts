@@ -34,7 +34,6 @@ export class PokemonRestComponent implements OnInit {
 
   getPokemon (nombre : string){
     
-    
     //llamadas a los sevicios.
     //cuanodo llamamos a un observable tenemos tres posibles metodos 
     //next,error y complete, SOLO UNO es OBLIGATORIO (next).
