@@ -49,7 +49,7 @@ export class UsuarioService implements IUsuarioService{
   }
 
   estaLogeado(): boolean {
-    console.trace('UsuarioService  funcion estaLogeado');
+    //console.trace('UsuarioService  funcion estaLogeado');
     return this.isLogged;
   }
 

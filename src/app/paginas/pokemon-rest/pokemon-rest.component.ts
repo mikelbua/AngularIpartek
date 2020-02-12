@@ -20,18 +20,12 @@ export class PokemonRestComponent implements OnInit {
 
     this.pokemon = new Pokemon('');
     this.nombrePokemon = '';
-    /*this.pokemon.nombre = 'Pikachu';
-    this.pokemon.id = 25;
-    this.pokemon.imagen = `https://images-na.ssl-images-amazon.com/images/I/31dQTRb3vHL._AC_SY355_.jpg`;
-    */
     
     console.debug(this.pokemon);
   }//constructor
 
   ngOnInit() {
     console.trace('PokemoRestComponent init');
-
-    this.getPokemon('nombrePokemon');
   }//init
 
   buscarPoquemon(){
@@ -39,11 +33,13 @@ export class PokemonRestComponent implements OnInit {
   }
 
   getPokemon (nombre : string){
-
+    
+    
     //llamadas a los sevicios.
-    //cuanodo llamamos a un observable tenemos tres posibles metodos, SOLO UNO es OBLIGATORIO.
+    //cuanodo llamamos a un observable tenemos tres posibles metodos 
+    //next,error y complete, SOLO UNO es OBLIGATORIO (next).
     //a un observble nos tenemos que subscribir.
-    this.PokemonService.getPokemonByNombre( 'nombrePokemon' ).subscribe(
+    this.PokemonService.getPokemonByNombre( nombre ).subscribe(
       data => {
         console.debug('peticion correcta data %o', data);
         // mapear de Json a Pokemon
@@ -51,9 +47,12 @@ export class PokemonRestComponent implements OnInit {
         this.pokemon.nombre = data.name;
         this.pokemon.imagen = data.sprites.front_default;
 
+        //limpiamos el array de habilidades en español que utilizaremos mas abajo para que no se acumulen.
+        this.pokemon.habilidades = [];
+
         const habilidadesNames = data.abilities.map( el => el.ability.name );
         console.debug('habilidades en ingles %o', habilidadesNames);
-
+        
         habilidadesNames.forEach( habilidad => {
             // conseguir su habilidad en castellano
             this.PokemonService.getHabilidad( habilidad ).subscribe(
@@ -70,15 +69,15 @@ export class PokemonRestComponent implements OnInit {
         this.mensaje = 'Pokemon cargado desde https://pokeapi.co';
 
       },
-      error => {
+      error => {//metodo error de Observable (no obligatorio).
         console.warn('peticion ERRONEA data %o', error);
-        this.mensaje = 'No existe pokemon X';
+        this.mensaje = 'No existe pokemon '+ nombre;
       },
-      () => {
+      () => {//metodo complete de Observable (no obligatorio).
         console.trace('esto se hace siempre');
       }
     );
 
-  }
+  }//getPokemon
 
 }
