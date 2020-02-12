@@ -108,7 +108,7 @@ export class TareasComponent implements OnInit {
       },
       error => {
         console.warn('Servico Rest no funciona %o', error);
-        this.mensaje = 'Servicio Rest No Funciona, posiblemente no lo hayas arrancado!!!';
+        this.mensaje = 'Servicio Rest No Funciona, posiblemente no lo hayas arrancado!!! para arrancar base de datos : json-server --watch db.json';
         this.showMensaje = true;
       });
 

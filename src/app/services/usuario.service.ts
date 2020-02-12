@@ -14,19 +14,23 @@ export class UsuarioService implements IUsuarioService{
       this.isLogged=false;
     }//constructor
   
-  
+  /**
+   * Busca el usuario por nombre y password
+   * @param nombre 
+   * @param password 
+   * @return Usuario con datos si existe, undefined si no encuentra
+   */
   login(nombre: string, password: string): import("../model/usuario").Usuario {
     const NOMBRE = 'admin';
     const PASSWORD = 'admin';
-    let usuarioBuscar = undefined;//si no en el siguiete if es qeu es undefined
+    let usuarioBuscar = new Usuario;//si no en el siguiete if es qeu es undefined
 
     if (NOMBRE === nombre && PASSWORD === password){
       console.trace('Usuario encontrado');
       //crear usuario
-      usuarioBuscar = new Usuario();
       usuarioBuscar.nombre = nombre;
       usuarioBuscar.password = password;
-      usuarioBuscar.idUsuario  = 99;
+      usuarioBuscar.id  = 99;
       //marcar que esta logeado
       this.isLogged = true;
 
@@ -39,14 +43,13 @@ export class UsuarioService implements IUsuarioService{
 
   }//login
 
-  cerrarSesion(idUsuario: number): void {
+  cerrarSesion(): void {
+    console.trace('UsuarioService cerrarSesion');
     this.isLogged = false;
   }
 
   estaLogeado(): boolean {
-    console.debug('el usuario esta logeado');
-    this.isLogged = false; 
-
+    console.trace('UsuarioService  funcion estaLogeado');
     return this.isLogged;
   }
 
