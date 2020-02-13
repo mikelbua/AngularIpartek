@@ -34,6 +34,6 @@ export class RecetasComponent implements OnInit {
     }else{
       document.getElementById("glutenFree").style.backgroundColor = "green";
     }
-  }
+  }//detalleReceta
 
 }//CLASS

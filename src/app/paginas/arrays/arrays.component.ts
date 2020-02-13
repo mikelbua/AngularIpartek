@@ -70,16 +70,13 @@ primeraFrutaVerde : string;
       //Buscar primera fruta verde
       this.primeraFrutaVerde = this.frutas.find(el => el.color.includes('verde'));
 
-      //Buscar todos los colores de las frutas frutas[].colore[]
-      this.todosLosColores = this.frutas 
-      /*
+      //Buscar todos los colores de las frutas frutas[].colore[]      
       this.todosLosColores = this.frutas.reduce( (p, c, i, a) => {
             return p.concat(c.colores);
         }, [] ).filter( (el, index, array) => {
             console.debug(el, index, array);
             return array.indexOf(el) === index;
           });
-      }*/
-  }//ngOnInit
 
-}//class
+      }//ngOnInit
+  }//class

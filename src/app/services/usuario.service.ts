@@ -2,16 +2,24 @@ import { Injectable } from '@angular/core';
 import { IUsuarioService } from './IUsuario.service';
 import { Usuario } from '../model/usuario';
 
+const KEY_LOGEADO = 'isLogged';
+
 @Injectable({
   providedIn: 'root'
 })
 export class UsuarioService implements IUsuarioService{
 
-  private isLogged : boolean;
+ 
+  private storage: Storage;
   
   constructor() {
       console.debug('UsuarioService contructor');
-      this.isLogged=false;
+      //esto guardaria en el local storage del navegador la sesion para siempre en el navegador.
+      //this.storage = window.localStorage;
+      
+      //esto guardara en el local storage del navegador la sesion hasta que se cierre el navegador.
+      this.storage = window.sessionStorage;
+    
     }//constructor
   
   /**
@@ -32,11 +40,11 @@ export class UsuarioService implements IUsuarioService{
       usuarioBuscar.password = password;
       usuarioBuscar.id  = 99;
       //marcar que esta logeado
-      this.isLogged = true;
+      this.storage.setItem(KEY_LOGEADO, JSON.stringify(usuarioBuscar));
 
     } else {
       console.trace('Usuario no encontrado');
-      this.isLogged = false;
+      this.storage.removeItem(KEY_LOGEADO);
     }
 
     return usuarioBuscar;
@@ -45,12 +53,13 @@ export class UsuarioService implements IUsuarioService{
 
   cerrarSesion(): void {
     console.trace('UsuarioService cerrarSesion');
-    this.isLogged = false;
+    this.storage.removeItem(KEY_LOGEADO);
   }
 
   estaLogeado(): boolean {
     //console.trace('UsuarioService  funcion estaLogeado');
-    return this.isLogged;
+
+    return !!this.storage.getItem(KEY_LOGEADO);
   }
 
 

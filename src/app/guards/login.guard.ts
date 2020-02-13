@@ -25,7 +25,7 @@ constructor(private router: Router , private usuarioService : UsuarioService){
       this.router.navigate(['login']);
     }
     return logeado;
-    //TODO si el usuario no se ha logeado false en cso contrario true
+    //TODO si el usuario no se ha logeado false en caso contrario true
     //TODO crear provider do servicio para login de usuario
     //TODO servicio Rest de mySql
       console.debug('canActivate de LoginGuard');
