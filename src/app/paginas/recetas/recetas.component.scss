@@ -1,4 +1,8 @@
-.listaRecetario{
+.listaRecetario:hover{
+    background-color: #BA741A;
+}
+
+.listaRecetarioGlutenCircle{
     right: 10px; 
     top: 20px; 
     border: 1px solid black; 
@@ -6,6 +10,9 @@
     position: absolute; 
     width: 25px; 
     height: 25px;
+    &:hover{
+        background-color: #BA741A;
+    }
 }
 
 .nombreCocinero{

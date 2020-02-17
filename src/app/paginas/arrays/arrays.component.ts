@@ -72,9 +72,10 @@ primeraFrutaVerde : string;
 
       //Buscar todos los colores de las frutas frutas[].colore[]      
       this.todosLosColores = this.frutas.reduce( (p, c, i, a) => {
-            return p.concat(c.colores);
+        console.debug( ' reduce ' + p, c, i,a);
+            return p.concat(c.color);
         }, [] ).filter( (el, index, array) => {
-            console.debug(el, index, array);
+            console.debug('Filtro' + el, index, array);
             return array.indexOf(el) === index;
           });
 

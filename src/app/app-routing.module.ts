@@ -14,6 +14,7 @@ import { TareasComponent } from './paginas/tareas/tareas.component';
 import { PrivadoComponent } from './paginas/privado/privado.component';
 import { LoginGuard } from './guards/login.guard';
 import { LoginComponent } from './paginas/login/login.component';
+import { ComprasComponent } from './paginas/compras/compras.component';
 /**
  * definir las rutas de la aoo de angulas.
  * e path debe coincider con el [routerlink] del navbar
@@ -28,6 +29,7 @@ const routes: Routes = [
   { path: 'filtros', component: FiltrosComponent },
   { path: 'recetas', component: RecetasComponent },
   { path: 'tareas', component: TareasComponent },
+  { path: 'compras', component: ComprasComponent },
   //Vamos a proteger esta RUTA con una guarda(GUARD)
   { path: 'privado', component: PrivadoComponent , canActivate: [LoginGuard]},
   { path: 'login', component: LoginComponent },

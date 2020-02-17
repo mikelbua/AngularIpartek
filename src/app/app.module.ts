@@ -26,6 +26,9 @@ import { HelloDirective } from './directives/HelloDirective';
 import { TareasComponent } from './paginas/tareas/tareas.component';
 import { PrivadoComponent } from './paginas/privado/privado.component';
 import { LoginComponent } from './paginas/login/login.component';
+import { ComprasComponent } from './paginas/compras/compras.component';
+import { ListadoComponent } from './paginas/compras/listado/listado.component';
+import { DetalleComponent } from './paginas/compras/detalle/detalle.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +53,11 @@ import { LoginComponent } from './paginas/login/login.component';
     ComparadorComponent,
     TareasComponent,
     PrivadoComponent,
-    LoginComponent
+    LoginComponent,
+    ComprasComponent,
+    ListadoComponent,
+    DetalleComponent,
+    ComprasComponent
   ],
   imports: [
     BrowserModule,

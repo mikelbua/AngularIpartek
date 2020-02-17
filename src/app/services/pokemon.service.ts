@@ -30,7 +30,7 @@ export class PokemonService implements IPokemonService{
   getPokemonByNombre(nombre : string): Observable<any>{
     let url = 'https://pokeapi.co/api/v2/pokemon/'+ nombre;
     //let url = 'http://localhost:8080/pokemon-rest/api/pokemon/?nombre='+ nombre;
-    console.trace('get '+url);
+    console.trace('get '+ url);
     return this.http.get(url);
 
   }
@@ -41,5 +41,4 @@ export class PokemonService implements IPokemonService{
   }
   
 
-
-}
+}//class

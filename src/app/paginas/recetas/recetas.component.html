@@ -15,10 +15,10 @@
         <div class="col-3 "> 
             <h3>Recetario</h3>
             <ul class="list-group">
-                <li *ngFor ="let r of recetas | recetaFiltroPipe : checkGluten : busqueda" class="list-group-item"  (click)="detalleReceta(r)">
+                <li *ngFor ="let r of recetas | recetaFiltroPipe : checkGluten : busqueda" class="list-group-item listaRecetario"  (click)="detalleReceta(r)">
                     <div>{{r.nombre}}</div>
                     <div class="nombreCocinero"><i>{{r.cocinero}}</i></div>
-                    <div class="listaRecetario" [style.background]="r.isGlutenFree ? 'green' : 'red'">
+                    <div class="listaRecetarioGlutenCircle" [style.background]="r.isGlutenFree ? 'green' : 'red'">
                         Glu
                     </div>
                 </li>
@@ -32,7 +32,7 @@
                 <div class="col  p-2 ml-3">
                     <div style="position: relative;">
                         <img class=" mt-2 imagenReceta" src="{{receta.foto}}" alt="">
-                        <span class="glutenBox" id="glutenFree">
+                        <span class="glutenBox" [style.background]="receta.isGlutenFree ? 'green' : 'red'">
                            Glu
                         </span>
                     </div>

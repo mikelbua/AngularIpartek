@@ -38,7 +38,10 @@
           <a [routerLink]="['/tareas']" routerLinkActive="router-link-active" class="nav-link">Tareas</a>
         </li>
         <li class="nav-item">             
-          <a [routerLink]="['/login']" routerLinkActive="router-link-active" class="nav-link">Iniciar sesion</a>
+          <a *ngIf="!usuarioServide.estaLogeado()" [routerLink]="['/login']" routerLinkActive="router-link-active" class="nav-link">Iniciar sesion</a>
+        </li>
+        <li class="nav-item">             
+          <a [routerLink]="['/compras']" routerLinkActive="router-link-active" class="nav-link">Input Output</a>
         </li>
 
         <!--  -->

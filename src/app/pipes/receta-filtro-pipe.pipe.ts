@@ -34,6 +34,6 @@ export class RecetaFiltroPipePipe implements PipeTransform {
 
 
     return resultado;
-  }
+  }//transform
 
 }

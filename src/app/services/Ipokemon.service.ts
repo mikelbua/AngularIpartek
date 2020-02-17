@@ -1,5 +1,4 @@
 import { Observable } from "rxjs";
-import { Pokemon } from '../model/pokemon';
 
 export interface IPokemonService {
 
