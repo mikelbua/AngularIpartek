@@ -19,7 +19,7 @@
                     <div>{{r.nombre}}</div>
                     <div class="nombreCocinero"><i>{{r.cocinero}}</i></div>
                     <div class="listaRecetarioGlutenCircle" [style.background]="r.isGlutenFree ? 'green' : 'red'">
-                        Glu
+                        <i class="fas fa-exclamation-circle"></i>
                     </div>
                 </li>
             </ul>
@@ -33,7 +33,7 @@
                     <div style="position: relative;">
                         <img class=" mt-2 imagenReceta" src="{{receta.foto}}" alt="">
                         <span class="glutenBox" [style.background]="receta.isGlutenFree ? 'green' : 'red'">
-                           Glu
+                            <i class="fas fa-exclamation-circle"></i>
                         </span>
                     </div>
                     <div class="w-100 d-flex">
