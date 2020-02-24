@@ -29,7 +29,6 @@ import { LoginComponent } from './paginas/login/login.component';
 import { ComprasComponent } from './paginas/compras/compras.component';
 import { ListadoComponent } from './paginas/compras/listado/listado.component';
 import { DetalleComponent } from './paginas/compras/detalle/detalle.component';
-import { BackofficeComponent } from './paginas/backoffice/backoffice.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +58,6 @@ import { BackofficeComponent } from './paginas/backoffice/backoffice.component';
     ListadoComponent,
     DetalleComponent,
     ComprasComponent,
-    BackofficeComponent
   ],
   imports: [
     BrowserModule,
